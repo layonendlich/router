@@ -25,49 +25,69 @@ class Router extends Dispatch
      * @param string $route
      * @param $handler
      * @param string|null $name
+     * @param bool|null $allowOptions
      */
-    public function post(string $route, $handler, string $name = null): void
+    public function post(string $route, $handler, string $name = null, $allowOptions = null): void
     {
         $this->addRoute("POST", $route, $handler, $name);
+        {
+            $this->addRoute("OPTIONS", $route, $handler, $name);
+        }
     }
 
     /**
      * @param string $route
      * @param $handler
      * @param string|null $name
+     * @param bool|null $allowOptions
      */
-    public function get(string $route, $handler, string $name = null): void
+    public function get(string $route, $handler, string $name = null, $allowOptions = null): void
     {
         $this->addRoute("GET", $route, $handler, $name);
+        {
+            $this->addRoute("OPTIONS", $route, $handler, $name);
+        }
     }
 
     /**
      * @param string $route
      * @param $handler
      * @param string|null $name
+     * @param bool|null $allowOptions
      */
-    public function put(string $route, $handler, string $name = null): void
+    public function put(string $route, $handler, string $name = null, $allowOptions = null): void
     {
         $this->addRoute("PUT", $route, $handler, $name);
+        {
+            $this->addRoute("OPTIONS", $route, $handler, $name);
+        }
     }
 
     /**
      * @param string $route
      * @param $handler
      * @param string|null $name
+     * @param bool|null $allowOptions
      */
-    public function patch(string $route, $handler, string $name = null): void
+    public function patch(string $route, $handler, string $name = null, $allowOptions = null): void
     {
         $this->addRoute("PATCH", $route, $handler, $name);
+        {
+            $this->addRoute("OPTIONS", $route, $handler, $name);
+        }
     }
 
     /**
      * @param string $route
      * @param $handler
      * @param string|null $name
+     * @param bool|null $allowOptions
      */
-    public function delete(string $route, $handler, string $name = null): void
+    public function delete(string $route, $handler, string $name = null, $allowOptions = null): void
     {
         $this->addRoute("DELETE", $route, $handler, $name);
+        {
+            $this->addRoute("OPTIONS", $route, $handler, $name);
+        }
     }
 }
